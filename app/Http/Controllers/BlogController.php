@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 //сделаем класс абстрактным
 //натройка хелпера в нетбинс
 //https://packagist.org/packages/barryvdh/laravel-ide-helper
-abstract class BaseController extends Controller
+abstract class BlogController extends Controller
 {
     //
 }
