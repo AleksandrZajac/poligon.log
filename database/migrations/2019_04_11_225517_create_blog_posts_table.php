@@ -14,7 +14,7 @@ class CreateBlogPostsTable extends Migration
     public function up()
     {
         Schema::create('blog_posts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
