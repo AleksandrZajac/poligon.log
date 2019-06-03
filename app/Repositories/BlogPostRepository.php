@@ -55,4 +55,17 @@ public function getAllWithPaginate()
 //dd($result->first());
   return $result;
   }
+
+  /**
+  * Получить модель для представления в админке.
+  *
+  * @param int $id
+  *
+  * @return Model
+  */
+  public function getEdit($id)
+  {
+    return $this->startConditions()->find($id);
+  }
+  
 }
