@@ -105,7 +105,7 @@ class PostController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         dd(__METHOD__, $id, $request->all());
     }
