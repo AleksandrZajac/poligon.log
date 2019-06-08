@@ -78,7 +78,7 @@ class CategoryController extends BaseController
        //dd(__METHOD__);
        $data = $request->input();
        if (empty($data['slug'])) {
-         $data['slug'] = str_slug($data['title']);
+         $data['slug'] = \Str::slug($data['title']);
        }
        //Создаст объект но не добавит в БД
        $item = new BlogCategory($data);
@@ -191,7 +191,7 @@ class CategoryController extends BaseController
 
         $data = $request->all();
         if (empty($data['slug'])) {
-          $data['slug'] = str_slug($data['title']);
+          $data['slug'] = \Str::slug($data['title']);
 }
         //dd($data);
         $result = $item->fill($data)->save();
