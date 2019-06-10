@@ -77,9 +77,11 @@ class CategoryController extends BaseController
      {
        //dd(__METHOD__);
        $data = $request->input();
+       /*
+       // Ушло в обсервер
        if (empty($data['slug'])) {
          $data['slug'] = \Str::slug($data['title']);
-       }
+       }*/
        //Создаст объект но не добавит в БД
        $item = new BlogCategory($data);
        //dd($item);
@@ -150,7 +152,7 @@ class CategoryController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  BlogCategoryUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -190,9 +192,11 @@ class CategoryController extends BaseController
         }
 
         $data = $request->all();
+        /*
+        // Ушло в обсервер
         if (empty($data['slug'])) {
           $data['slug'] = \Str::slug($data['title']);
-}
+}*/
         //dd($data);
         $result = $item->fill($data)->save();
         //$result = $item->update($data);

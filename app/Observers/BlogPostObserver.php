@@ -25,16 +25,17 @@ class BlogPostObserver
     */
     public function updating(BlogPost $blogPost)
     {
-      // $test[] = $blogPost->isDirty();
-      // $test[] = $blogPost->isDirty('is_published');
-      // $test[] = $blogPost->isDirty('user_id');
-      // $test[] = $blogPost->getAttribute('is_published');
-      // $test[] = $blogPost->is_published;
-      // $test[] = $blogPost->getOriginal('is_published');
+      // $test[] = $blogPost->isDirty();// изменялись ли поля в модели
+      // $test[] = $blogPost->isDirty('is_published');// изменялось ли поле 1
+      // $test[] = $blogPost->isDirty('user_id');// изменялось ли поле 1
+      // $test[] = $blogPost->getAttribute('is_published');//получаем значение атрибута текущего
+      // $test[] = $blogPost->is_published;//получаем значение атрибута текущего значения
+      // $test[] = $blogPost->getOriginal('is_published');// получаем значение атрибута старое
       // dd($test);
 
       $this->setPublishedAt($blogPost);
       $this->setSlug($blogPost);
+      //return false;
     }
 
     /**
