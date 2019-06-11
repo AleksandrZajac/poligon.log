@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
+use App\Http\Requests\BlogPostCreateRequest;
 use App\Http\Requests\BlogPostUpdateRequest;
 use App\Repositories\BlogCategoryRepository;
 use App\Repositories\BlogPostRepository;
 use App\Models\BlogPost;
 //use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 /**
 *
@@ -67,11 +67,13 @@ class PostController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param  BlogPostCreateRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(BlogPostCreateRequest $request)
     {
         $data = $request->input();
+        // Создаст объект и добавит в БД
         $item = (new BlogPost())->create($data);
 
         if ($item) {
