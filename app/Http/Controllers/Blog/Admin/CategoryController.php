@@ -83,12 +83,12 @@ class CategoryController extends BaseController
          $data['slug'] = \Str::slug($data['title']);
        }*/
        //Создаст объект но не добавит в БД
-       $item = new BlogCategory($data);
+       //$item = new BlogCategory($data);
        //dd($item);
-       $item->save();
+       //$item->save();
 
        //Создаст объект и добавит в БД
-       //$item = (new BlogCategory())->create($data);
+       $item = (new BlogCategory())->create($data);
 
        if ($item) {
          return redirect()->route('blog.admin.categories.edit', [$item->id])

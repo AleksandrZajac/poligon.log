@@ -27,7 +27,7 @@ class BlogPostObserver
     */
     protected function setHtml(BlogPost $blogPost)
     {
-      if ($bloPost->isDirty('content_raw')) {
+      if ($blogPost->isDirty('content_raw')) {
         // TODO: Тут должна быть генерация markdown -> html
         $blogPost->content_html = $blogPost->content_raw;
       }
