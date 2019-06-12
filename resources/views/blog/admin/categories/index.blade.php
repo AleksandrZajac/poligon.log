@@ -28,7 +28,19 @@
                     </a>
                   </td>
                   <td @if(in_array($item->parent_id, [0, 1])) style="..." @endif>
-                    {{ $item->parent_id }}{{-- $item->parentCategory->title --}}
+                      <!-- {{ $item->parent_id }}{{-- $item->parentCategory->title --}} -->
+                      <!-- связь с BlogCategory parentCategory() 3 варианта -->
+                    <!-- {{ $item->parentCategory->title ?? '?' }}
+                    {{ optional($item->parentCategory)->title }} -->
+                    <!-- {{
+                      $item->parentCategory->title
+                      ?? ($item->id === \App\Models\BlogCategory::ROOT
+                        ? 'Корень'
+                        : '???')
+                    }} -->
+                    <!-- вариант с аксессором -->
+                    <!-- {{ $item->parent_title }} -->
+                    {{ $item->parentTitle }}
                   </td>
                 </tr>
               @endforeach
