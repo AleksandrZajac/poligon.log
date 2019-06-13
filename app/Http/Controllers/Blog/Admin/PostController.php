@@ -7,6 +7,7 @@ use App\Http\Requests\BlogPostUpdateRequest;
 use App\Repositories\BlogCategoryRepository;
 use App\Repositories\BlogPostRepository;
 use App\Models\BlogPost;
+//use Illuminate\Http\Request;
 //use Carbon\Carbon;
 
 /**
@@ -153,8 +154,22 @@ class PostController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-        dd(__METHOD__, $id, $request->all());
+        //d(__METHOD__, $id, request()->all());
+        // софт-удаление, в бд остается.
+        // если хотим востановить пишем метод restore
+        $result = BlogPost::destroy($id);
+
+        // полное удаление из бд
+        //$result = BlogPost::find($id)->forceDelete();
+
+        if ($result) {
+          return redirect()
+            ->route('blog.admin.posts.index')
+            ->with(['success' => "Запись id[$id] удалена"]);
+        } else {
+          return back()->withErrors(['msg' => 'Ошибка удаления']);
+        }
     }
 }
