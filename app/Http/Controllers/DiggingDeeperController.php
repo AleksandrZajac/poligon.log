@@ -50,6 +50,7 @@ class DiggingDeeperController extends Controller
   // //dd($result);
      // $result['where']['data'] = $collection
      //   ->where('category_id', '=', 10)
+     // values()- обнуление ключей
      //   ->values()
      //   ->keyBy('id');
   // dd($result);
